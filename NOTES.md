@@ -19,6 +19,11 @@
 > docker  completion zsh
 
 
+> edit .zshrc 
+
+> plugins=(docker docker-compose)
+
+> exec $SHELL -l
 
 > ps -auxf
 
