@@ -2,6 +2,24 @@
 
 > vagrant plugin install vagrant-parallels
 
+> sudo usermod -aG docker $USER
+> newgrp docker
+
+> https://docs.docker.com/engine/install/linux-postinstall/
+
+> systemctl status containerd
+
+> dpkg -L docker-ce
+
+> rpm -ql  docker-ce
+
+> rpm -ql  docker-ce-cli-24.0.7-1.el8.x86_64
+
+> docker  completion fish
+> docker  completion zsh
+
+
+
 > ps -auxf
 
 > ctr containers ls
