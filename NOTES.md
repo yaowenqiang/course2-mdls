@@ -25,6 +25,20 @@
 
 > exec $SHELL -l
 
+> vim /etc/docker/daemon.json
+
+> "debug": true,
+
+
+> journalctl -xef -u dockerd
+
+> https://docs.docker.com/reference/cli/dockerd/
+
+
+## Docker context
+
+> curl --unix-socket /run/docker.sock http://localhost/version | jq
+
 > ps -auxf
 
 > ctr containers ls
