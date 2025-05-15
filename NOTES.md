@@ -39,6 +39,39 @@
 
 > curl --unix-socket /run/docker.sock http://localhost/version | jq
 
+> docker context ls
+> docker context create ubuntu --docker "host=ssh://ubuntu"
+> docker context use ubuntu
+> docker -c ubuntu image list
+
+> export DOCKER_CONTEXT=centos context list
+
+## Securing connection
+
+> brew install grc
+
+> grc docker image list
+
+> systemctl edit docker
+
+
+```ini
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd -H tcp://127.0.0.1:2375 --containerd=/run/containerd/containerd.sock
+```
+DOCKER_HOST=tcp:// docker context list
+DOCKER_HOST=tcp:// docker image list
+
+> curl localhost:2375/images/json
+
+### HTTPS
+
+> brew install mkcert
+
+> sudo yum install nss-tools
+
+
 > ps -auxf
 
 > ctr containers ls
