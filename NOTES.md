@@ -69,6 +69,45 @@ DOCKER_HOST=tcp:// docker image list
 
 > brew install mkcert
 
+> mkcert -install
+
+> run on server
+
+> mkcert -cert-file server.crt -key-file  server.key localhost 127.0.0.1
+
+> run on client
+> mkcert -cert-file server.crt -key-file  server.key --client localhost 127.0.0.1
+
+> systemctl edit docker
+
+```ini
+
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd --containerd=/run/containerd/containerd.sock
+```
+> server side
+
+> vim /etc/docker/daemon.json
+
+```json
+"tlsverify": true,
+"tlscacert": "rootca.pem",
+"tlscert": "server.crt",
+"tlskey": "server.key",
+"hosts": ["tcp://0.0.0.0:2376"]
+
+```
+> restart docker
+
+> dockerd --valicate
+
+> client side
+
+
+> docker --tlscacert=rootca.pem --tlscert=client.srt --tlskey=client.key -H tcp://ip:2376 version
+
+> curl --cacert=rootca.pem --cert=client.srt --key=client.key https://ip:2376/images/json
 > sudo yum install nss-tools
 
 
